@@ -1,0 +1,20 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button [disabled]="tab1" tab="tab1">
+      <ion-icon name="lock-open-outline"></ion-icon>
+      <ion-label> {{ 'Entry' | transloco }}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [disabled]="tab2" tab="tab2">
+      <ion-icon name="tablet-landscape-outline"></ion-icon>
+      <ion-label>{{ 'Tables' | transloco }}</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [disabled]="tab3" tab="tab3">
+      <ion-icon name="receipt-outline"></ion-icon>
+      <ion-label>{{ 'Order' | transloco }}</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

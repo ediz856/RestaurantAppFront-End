@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      {{ 'Home Screen' | transloco }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item> 
+    <ion-label position="stacked">{{ 'Password' | transloco }}<ion-text color="danger">*</ion-text></ion-label>
+    <ion-input placeholder="Password" [ngModelOptions]="{standalone: true}" [(ngModel)]="password" type="password"
+    class="form-control">
+  </ion-input>
+    <br>
+    <ion-button (click)="login()" size="medium" color="success">{{ 'Confirm' | transloco }}</ion-button>
+    <br>
+     <section class="button" style="margin-left:auto;margin-right:auto;display:block;">
+      <header>{{ 'Enter Password' | transloco }}</header>
+      <br>
+      <ion-button  (click)="buttonPressed('1')" size="large" color="dark">1</ion-button>
+      <ion-button  (click)="buttonPressed('2')" size="large" color="dark">2</ion-button>
+      <ion-button  (click)="buttonPressed('3')" size="large" color="dark">3</ion-button>
+      <br>
+      <ion-button  (click)="buttonPressed('4')" size="large" color="dark">4</ion-button>
+      <ion-button  (click)="buttonPressed('5')" size="large" color="dark">5</ion-button>
+      <ion-button  (click)="buttonPressed('6')" size="large" color="dark">6</ion-button>
+      <br>
+      <ion-button  (click)="buttonPressed('7')" size="large" color="dark">7</ion-button>
+      <ion-button  (click)="buttonPressed('8')" size="large" color="dark">8</ion-button>
+      <ion-button  (click)="buttonPressed('9')" size="large" color="dark">9</ion-button>
+      <br>
+      <ion-button  (click)="buttonPressed('0')" size="large" color="dark">0</ion-button>
+      
+      <ion-button  (click)="buttonPressed()" size="large" color="danger">{{ 'Back' | transloco }}</ion-button>
+      <br>
+      <ion-col size="4">
+        <ion-select (ionChange)="changeLanguage($event)" name="languages" interface="popover" [placeholder]="'Select Language' | transloco" value="brown" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="sq">{{ 'Shqip' | transloco }}</ion-select-option>
+          <ion-select-option value="mk">{{ 'македонски' | transloco }}</ion-select-option>
+          <ion-select-option value="en">{{ 'English' | transloco }}</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </section>
+    <img [src]="imageUrl || 'assets/icon/AMBLEMI.png'">
+  </ion-item>
+</ion-content>

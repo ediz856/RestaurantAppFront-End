@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      {{ 'Tables' | transloco }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+
+  <section>
+
+    <div *ngFor="let table of tables" #tableTemplate>
+      <div *ngIf="table.e_zene === false"
+        style="width: 100px; height: 50px; float: left; margin-left:20px; margin-top: 10px;"
+        [ngStyle]="{'background-color': '#72d472' }" (click)="goToTable(table, true)"
+        size="large">
+        {{ 'Table' | transloco }}-{{ table?.tavolinaID }}
+      </div>
+      <div *ngIf="getMyTables(table) === true && table?.e_zene === true"
+        style="width: 100px; height: 50px; float: left; margin-left:20px; margin-top: 10px;"
+        [ngStyle]="{'background-color': '#1c7ceb' }" (click)="goToTable(table, getMyTables(table))"
+        size="large">
+        {{ 'Table' | transloco }}-{{ table?.tavolinaID }}
+      </div>
+      <div *ngIf="getMyTables(table) === false && table?.e_zene === true"
+        style="width: 100px; height: 50px; float: left; margin-left:20px; margin-top: 10px;"
+        [ngStyle]="{'background-color': '#b0b0b0' }" (click)="goToTable(table, getMyTables(table))"
+        size="large">
+        {{ 'Table' | transloco }}-{{ table?.tavolinaID }}
+      </div>
+    </div>
+
+
+    <ion-button size="large" color="success" style="margin-left:auto; height: 66px; width: 160px; font-family: Arial, Helvetica, sans-serif;
+     font-size: 15px; text-transform: uppercase;"><i>{{ ' without table' | transloco }}</i></ion-button>
+
+    <ion-button (click)="logout()" size="large" color="danger" style="margin-left:auto; height: 66px; width: 160px; font-family: Arial, Helvetica, sans-serif;
+     font-size: 18px; text-transform: uppercase;">{{ 'Logout' | transloco }}</ion-button>
+    <ion-button size="large" color="light" style="margin-left:auto; height: 66px; width: 160px; font-family: Arial, Helvetica, sans-serif;
+       font-size: 18px; text-transform: uppercase;">{{ 'Refresh' | transloco }}</ion-button>
+    <br>
+    <ion-button size="large" color="success" style="margin-left:auto; height: 30px; width: 100px; font-family: Arial, Helvetica, sans-serif;
+       font-size: 8px; text-transform: uppercase;">{{ 'Available Tables' | transloco }}</ion-button>
+    <ion-button size="large" color="primary" style="margin-left:auto; height: 30px; width: 100px; font-family: Arial, Helvetica, sans-serif;
+       font-size: 8px; text-transform: uppercase;">{{ 'Your Table' | transloco }}</ion-button>
+    <ion-button size="large" color="medium" style="margin-left:auto; height: 30px; width: 100px; font-family: Arial, Helvetica, sans-serif;
+       font-size: 8px; text-transform: uppercase;">{{ 'Busy Table' | transloco }}</ion-button>
+  </section>
+
+</ion-content>
